@@ -1,0 +1,361 @@
+@model HopNExplore.Models.TourPackage
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                animation: {
+                    'fade-in': 'fadeIn 0.6s ease-in-out',
+                    'slide-up': 'slideUp 0.8s ease-out',
+                }
+            }
+        }
+    }
+</script>
+
+<!-- Hero Section -->
+@* <div class="hero-bg h-screen flex items-center justify-center text-white relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+    <div class="container mx-auto px-6 text-center z-10 animate-fade-in">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            @Model.TourName
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+            Discover the breathtaking beauty of the Swiss and French Alps
+        </p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+            <div class="flex items-center gap-2 text-lg">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span>@Model.Duration</span>
+            </div>
+            <div class="flex items-center gap-2 text-lg">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                        d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-7-8a7 7 0 1114 0 7 7 0 01-14 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                <span>@Model.Price per person</span>
+            </div>
+        </div>
+
+
+        <a href="/TourPackage/Booking?packageId=@Model.Id"> <button
+                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                Book Now
+            </button>
+        </a>
+
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+    </div>
+</div>
+<div class="max-w-7xl mx-auto px-4 py-12">
+
+
+    <!-- Tour Overview Section -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="animate-slide-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8">Tour Overview</h2>
+                <p class="text-gray-600 text-lg leading-relaxed mb-12 max-w-4xl">
+                    Experience the ultimate Alpine adventure on this spectacular journey through the heart of the
+                    European Alps. This 5-day expedition
+                    combines thrilling mountain adventures with serene village charm. From the iconic peaks of Mont
+                    Blanc
+                    to the picturesque valleys of Interlaken, experience unparalleled natural beauty, first-class and
+                    accommodations, and unforgettable memories with fellow adventurers. Hikes. Book your alpine
+                    adventure today.
+                </p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Left Column -->
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Journey through alpine meadows</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Visit to charming mountain villages</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Opportunities for photography and wildlife spotting</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Small group size for personalized experience</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-6 lg:col-span-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Cable car rides to panoramic viewpoints</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Authentic Swiss and French culinary experiences</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-700">Experienced local tour guides</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Gallery Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Photo Gallery</h2>
+
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Row 1 -->
+                <div
+                    class="col-span-1 h-64 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(59, 130, 246, 0.7), rgba(59, 130, 246, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%234ade80%22 width=%22400%22 height=%22300%22/><polygon fill=%22%2322c55e%22 points=%220,300 100,150 200,200 400,100 400,300%22/><polygon fill=%22%23065f46%22 points=%22100,300 200,120 300,180 400,80 400,300%22/></svg>');">
+                        Mountain Lake Reflection
+                    </div>
+                </div>
+                <div
+                    class="col-span-1 h-64 bg-gradient-to-br from-green-400 to-green-600 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(34, 197, 94, 0.7), rgba(34, 197, 94, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%2316a34a%22 width=%22400%22 height=%22300%22/><rect fill=%22%23166534%22 x=%22150%22 y=%22200%22 width=%22100%22 height=%22100%22/><polygon fill=%22%238b5cf6%22 points=%22180,200 220,200 200,150%22/></svg>');">
+                        Alpine Village Charm
+                    </div>
+                </div>
+                <div
+                    class="col-span-2 lg:col-span-1 h-64 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(251, 146, 60, 0.7), rgba(239, 68, 68, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22300%22/><circle fill=%22%23dc2626%22 cx=%22320%22 cy=%2280%22 r=%2230%22/></svg>');">
+                        Mountain Wildflower Trail
+                    </div>
+                </div>
+
+                <!-- Row 2 -->
+                <div
+                    class="col-span-1 h-64 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(168, 85, 247, 0.7), rgba(236, 72, 153, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23a855f7%22 width=%22400%22 height=%22300%22/><circle fill=%22%23fbbf24%22 cx=%22100%22 cy=%2250%22 r=%2240%22/></svg>');">
+                        Sunrise Summit View
+                    </div>
+                </div>
+                <div
+                    class="col-span-1 h-64 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(34, 211, 238, 0.7), rgba(59, 130, 246, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%2322d3ee%22 width=%22400%22 height=%22300%22/><polygon fill=%22%23ffffff%22 points=%22200,100 220,120 180,120%22/><polygon fill=%22%23ffffff%22 points=%22200,120 240,160 160,160%22/></svg>');">
+                        Glacier Cave Adventure
+                    </div>
+                </div>
+                <div
+                    class="col-span-2 lg:col-span-1 h-64 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                    <div class="w-full h-full bg-center bg-cover flex items-center justify-center text-white text-sm font-medium"
+                        style="background-image: linear-gradient(rgba(245, 158, 11, 0.7), rgba(249, 115, 22, 0.7)), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22300%22/><rect fill=%22%23451a03%22 x=%22100%22 y=%22150%22 width=%22200%22 height=%22100%22 rx=%2210%22/></svg>');">
+                        Traditional Alpine Cuisine
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Itinerary Section -->
+    <div class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12">Detailed Itinerary</h2>
+
+            <div class="space-y-4">
+                <!-- Day 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:bg-gray-100"
+                        onclick="toggleDay(1)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-800">Day 1 - Arrival at Chamonix, France</span>
+                            <svg id="arrow-1" class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="day-1" class="hidden px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Arrive in the charming town of Chamonix, nestled at the base of Mont Blanc. Check into your
+                            alpine lodge and enjoy a welcome dinner featuring local Savoyard cuisine. Evening briefing
+                            about the upcoming adventure.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:bg-gray-100"
+                        onclick="toggleDay(2)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-800">Day 2 - Aiguille du Midi & Mer de Glace</span>
+                            <svg id="arrow-2" class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="day-2" class="hidden px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Take the famous Aiguille du Midi cable car to 3,842m for breathtaking panoramic views of
+                            Mont Blanc massif. Afternoon visit to Mer de Glace glacier via scenic railway. Explore the
+                            ice caves and learn about glacial formation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:bg-gray-100"
+                        onclick="toggleDay(3)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-800">Day 3 - Alpine Meadows Hike in Annecy</span>
+                            <svg id="arrow-3" class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="day-3" class="hidden px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Journey to beautiful Annecy, known as the "Venice of the Alps." Enjoy a guided hike through
+                            pristine alpine meadows filled with wildflowers. Evening stroll through Annecy's medieval
+                            old town and lakeside promenade.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:bg-gray-100"
+                        onclick="toggleDay(4)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-800">Day 4 - Scenic Transfer to Zermatt,
+                                Switzerland</span>
+                            <svg id="arrow-4" class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="day-4" class="hidden px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Travel through scenic Alpine passes to reach Zermatt, the car-free village beneath the
+                            iconic Matterhorn. Check into your mountain hotel and enjoy traditional Swiss fondue dinner
+                            with views of the Matterhorn.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Day 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:bg-gray-100"
+                        onclick="toggleDay(5)">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold text-gray-800">Day 5 - Gornergrat & Glacier Paradise</span>
+                            <svg id="arrow-5" class="w-5 h-5 text-gray-500 transform transition-transform duration-200"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="day-5" class="hidden px-6 py-4 bg-white border-t border-gray-200">
+                        <p class="text-gray-600">
+                            Final day adventure to Gornergrat via cogwheel railway for spectacular Matterhorn views.
+                            Optional visit to Glacier Paradise, Europe's highest cable car station. Farewell lunch
+                            before departure. Transfer to Geneva Airport for international flights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- CTA Section -->
+<div class="py-16 bg-blue-600 text-white text-center">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Your @Model.TourName?</h2>
+        <p class="text-xl mb-8 opacity-90">Book now and create memories that will last a lifetime</p>
+        <div class="space-x-4">
+            <button
+                class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
+                Book Now - BDT @Model.Price
+            </button>
+            <a href="../../Contact">
+                <button
+                    class="border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    Contact Us
+                </button>
+            </a>
+
+        </div>
+    </div>
+</div> *@
+
+<script>
+    function toggleDay(dayNumber) {
+        const content = document.getElementById(`day-${dayNumber}`);
+        const arrow = document.getElementById(`arrow-${dayNumber}`);
+
+        if (content.classList.contains('hidden')) {
+            content.classList.remove('hidden');
+            arrow.style.transform = 'rotate(180deg)';
+        } else {
+            content.classList.add('hidden');
+            arrow.style.transform = 'rotate(0deg)';
+        }
+    }
+
+    // Smooth scrolling for anchor links
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(el);
+        });
+    });
+</script>

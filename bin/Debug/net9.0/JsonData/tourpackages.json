@@ -1,0 +1,44 @@
+{
+  "tour_packages": [
+    {
+      "Id": 1,
+      "TourName": "Sajek Valley Advencture",
+      "Location": "Sajek, Rangamati, Bangladesh",
+      "Duration": "3 Days, 2 Nights",
+      "Price": 8500,
+      "Thumbnail": "images/sajek.jpg",
+      "Inclusions": [
+        "Sunrise view from Konglak Hill",
+        "Local tribal village experience",
+        "Sajek hanging bridge"
+      ]
+    },
+    {
+      "Id": 2,
+      "TourName": "Cox’s Bazar Beach Holiday",
+      "location": "Cox’s Bazar, Bangladesh",
+      "Duration": "4 Days, 3 Nights",
+      "Price": 12000,
+  
+      "Thumbnail": "images/coxsbazar.jpg",
+      "Inclusions": [
+        "World’s longest sea beach",
+        "Inani Beach and Himchari",
+        "Fresh seafood experience"
+      ]
+    },
+    {
+      "Id": 3,
+      "TourName": "Sundarban Adventure",
+      "location": "Khulna & Sundarban Forest, Bangladesh",
+      "Duration": "3 Days, 2 Nights",
+      "Price": 15000,
+      "Thumbnail": "images/sundarban.jpg",
+      "Inclusions": [
+        "Royal Bengal Tiger tracking",
+        "Mangrove forest boat ride",
+        "Wildlife photography"
+      ]
+    }
+  ]
+}

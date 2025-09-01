@@ -1,0 +1,360 @@
+<div class="bg-gray-50">
+    <div class="flex h-full">
+       
+
+        <!-- Main Content -->
+        <div class="flex-1 ">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="flex items-center px-6 py-4">
+                    <div class="flex items-center">
+                        <button onclick="goBack()"
+                            class="mr-4 p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 19l-7-7m0 0l7-7m0 0v14" />
+                            </svg>
+                        </button>
+                        <h1 class="text-2xl font-semibold text-gray-800">Add New Tour Package</h1>
+                    </div>
+
+                </div>
+            </header>
+
+            <!-- Main Content Area -->
+            <main class="p-6 overflow-y-auto h-full bg-gray-50">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Form Container -->
+                    <div class="bg-white rounded-lg shadow-sm">
+                        <div class="px-6 py-4 border-b border-gray-200">
+                            <h2 class="text-xl font-semibold text-gray-800">Tour Package Details</h2>
+                            <p class="text-gray-600 mt-1">Fill in all the required information to create a new tour
+                                package.</p>
+                        </div>
+
+                        <form method="post" asp-controller="CreatePackage" asp-action="addSubmitted" id="tourPackageForm" class="p-6">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                <!-- Left Column -->
+                                <div class="space-y-6">
+                                    <!-- Tour Name -->
+                                    <div>
+                                        <label for="tourName" class="block text-sm font-medium text-gray-700 mb-2">Tour
+                                            Package Name *</label>
+                                        <input type="text" id="tourName" name="tourName" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                            placeholder="Enter tour package name">
+                                    </div>
+
+                                    <!-- Destination -->
+                                    <div>
+                                        <label for="destination"
+                                            class="block text-sm font-medium text-gray-700 mb-2">Destination *</label>
+                                        <input type="text" id="destination" name="destination" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                            placeholder="e.g., Paris, France or Tokyo, Japan">
+                                    </div>
+
+                                    <!-- Duration -->
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="duration"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Duration (Days)
+                                                *</label>
+                                            <input type="number" id="duration" name="duration" min="1" required
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                                placeholder="7">
+                                        </div>
+                                        <div>
+                                            <label for="nights"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Nights</label>
+                                            <input type="number" id="nights" name="nights" min="0"
+                                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                                placeholder="6">
+                                        </div>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div>
+                                        <label for="price" class="block text-sm font-medium text-gray-700 mb-2">Price
+                                            (USD) *</label>
+                                        <div class="relative">
+                                            <div
+                                                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <span class="text-gray-500 sm:text-sm">$</span>
+                                            </div>
+                                            <input type="number" id="price" name="price" min="0" step="0.01" required
+                                                class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                                placeholder="2500.00">
+                                        </div>
+                                    </div>
+
+                                    <!-- Max Travelers -->
+                                    <div>
+                                        <label for="maxTravelers"
+                                            class="block text-sm font-medium text-gray-700 mb-2">Maximum
+                                            Travelers</label>
+                                        <input type="number" id="maxTravelers" name="maxTravelers" min="1"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                            placeholder="20">
+                                    </div>
+
+                                    <!-- Status -->
+                                    <div>
+                                        <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status
+                                            *</label>
+                                        <select id="status" name="status" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors">
+                                            <option value="">Select Status</option>
+                                            <option value="draft">Draft</option>
+                                            <option value="active">Active</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="inactive">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Right Column -->
+                                <div class="space-y-6">
+                                    <!-- Tour Image -->
+                                    <div>
+                                        <label for="tourImage" class="block text-sm font-medium text-gray-700 mb-2">Tour
+                                            Image</label>
+                                        <div
+                                            class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-brand-blue transition-colors">
+                                            <div class="space-y-1 text-center">
+                                                <div class="mx-auto h-12 w-12 text-gray-400">
+                                                    <svg fill="none" stroke="currentColor" viewBox="0 0 48 48">
+                                                        <path
+                                                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
+                                                    </svg>
+                                                </div>
+                                                <div class="flex text-sm text-gray-600">
+                                                    <label for="tourImage"
+                                                        class="relative cursor-pointer bg-white rounded-md font-medium text-brand-blue hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-blue">
+                                                        <span>Upload a file</span>
+                                                        <input id="tourImage" name="tourImage" type="file"
+                                                            class="sr-only" accept="image/*">
+                                                    </label>
+                                                    <p class="pl-1">or drag and drop</p>
+                                                </div>
+                                                <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Short Description -->
+                                    <div>
+                                        <label for="shortDescription"
+                                            class="block text-sm font-medium text-gray-700 mb-2">Short
+                                            Description</label>
+                                        <textarea id="shortDescription" name="shortDescription" rows="3"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
+                                            placeholder="Brief overview of the tour package..."></textarea>
+                                    </div>
+
+                                    <!-- Detailed Description -->
+                                    <div>
+                                        <label for="detailedDescription"
+                                            class="block text-sm font-medium text-gray-700 mb-2">Detailed
+                                            Description</label>
+                                        <textarea id="detailedDescription" name="detailedDescription" rows="6"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
+                                            placeholder="Detailed information about the tour package, including highlights, activities, accommodations..."></textarea>
+                                    </div>
+
+                                    <!-- Inclusions -->
+                                    <div>
+                                        <label for="inclusions"
+                                            class="block text-sm font-medium text-gray-700 mb-2">What's Included</label>
+                                        <textarea id="inclusions" name="inclusions" rows="4"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
+                                            placeholder="• Accommodation in 4-star hotels&#10;• Daily breakfast&#10;• Professional tour guide&#10;• Airport transfers"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Itinerary Section -->
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-lg font-semibold text-gray-800">Itinerary</h3>
+                                    <button type="button" id="addDay"
+                                        class="px-4 py-2 bg-black text-white rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
+                                        Add Day
+                                    </button>
+                                </div>
+
+                                <div id="itineraryContainer" class="space-y-4">
+                                    <!-- Day 1 Template -->
+                                    <div class="itinerary-day border border-gray-200 rounded-lg p-4">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <h4 class="font-semibold text-gray-800">Day 1</h4>
+                                            <button type="button"
+                                                class="text-red-600 hover:text-red-800 text-sm remove-day">Remove</button>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <input type="text" name="dayTitle[]"
+                                                placeholder="Day title (e.g., Arrival in Paris)"
+                                                class="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none">
+                                            <textarea name="dayDescription[]" rows="2"
+                                                placeholder="Day activities and description..."
+                                                class="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none resize-none"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-3 justify-end">
+                                <button type="button" onclick="goBack()"
+                                    class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                                    Cancel
+                                </button>
+                                <button type="button" id="saveDraft"
+                                    class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium">
+                                    Save as Draft
+                                </button>
+                                <button type="submit"
+                                    class="px-6 py-3 bg-black text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium">
+                                    Create Tour Package
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 max-w-md mx-4">
+            <div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mx-auto mb-4">
+                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 text-center mb-2">Tour Package Created!</h3>
+            <p class="text-gray-600 text-center mb-6">Your new tour package has been successfully created and added to
+                the system.</p>
+            <div class="flex gap-3">
+                <button onclick="closeModal()"
+                    class="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors">
+                    Close
+                </button>
+                <button onclick="viewPackages()"
+                    class="flex-1 px-4 py-2 bg-brand-blue text-white rounded-lg hover:bg-indigo-700 transition-colors">
+                    View Packages
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let dayCounter = 1;
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Add new day to itinerary
+        document.getElementById('addDay').addEventListener('click', function () {
+            dayCounter++;
+            const container = document.getElementById('itineraryContainer');
+            const dayHtml = `
+                <div class="itinerary-day border border-gray-200 rounded-lg p-4">
+                    <div class="flex items-center justify-between mb-3">
+                        <h4 class="font-semibold text-gray-800">Day ${dayCounter}</h4>
+                        <button type="button" class="text-red-600 hover:text-red-800 text-sm remove-day">Remove</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" name="dayTitle[]" placeholder="Day title (e.g., City Tour)" 
+                               class="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none">
+                        <textarea name="dayDescription[]" rows="2" placeholder="Day activities and description..."
+                                  class="px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none resize-none"></textarea>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', dayHtml);
+        });
+
+        // Remove day from itinerary
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('remove-day')) {
+                const dayElement = e.target.closest('.itinerary-day');
+                dayElement.remove();
+                updateDayNumbers();
+            }
+        });
+
+        function updateDayNumbers() {
+            const days = document.querySelectorAll('.itinerary-day h4');
+            days.forEach((day, index) => {
+                day.textContent = `Day ${index + 1}`;
+            });
+            dayCounter = days.length;
+        }
+
+        // Auto-calculate nights when days change
+        document.getElementById('duration').addEventListener('input', function () {
+            const days = parseInt(this.value) || 0;
+            const nights = Math.max(0, days - 1);
+            document.getElementById('nights').value = nights;
+        });
+
+        // Form submission
+        document.getElementById('tourPackageForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Show success modal
+            document.getElementById('successModal').classList.remove('hidden');
+        });
+
+        // Save as draft
+        document.getElementById('saveDraft').addEventListener('click', function () {
+            // Set status to draft and submit
+            document.getElementById('status').value = 'draft';
+            document.getElementById('tourPackageForm').dispatchEvent(new Event('submit'));
+        });
+
+        // Modal functions
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        function viewPackages() {
+            closeModal();
+            // Redirect to packages list
+            window.location.href = '/admin/tour-packages';
+        }
+
+        // File upload preview
+        document.getElementById('tourImage').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // You can add image preview functionality here
+                    console.log('File selected:', file.name);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form validation
+        document.addEventListener('DOMContentLoaded', function () {
+            const requiredFields = document.querySelectorAll('[required]');
+
+            requiredFields.forEach(field => {
+                field.addEventListener('blur', function () {
+                    if (!this.value.trim()) {
+                        this.classList.add('border-red-500');
+                    } else {
+                        this.classList.remove('border-red-500');
+                    }
+                });
+            });
+        });
+    </script>
+</div>

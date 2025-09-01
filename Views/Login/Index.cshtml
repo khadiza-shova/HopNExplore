@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In to Wanderlust Tours</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .palm-silhouette {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cpath d='M50 250 Q60 200 80 180 Q100 160 120 150 Q140 140 160 130 Q180 120 200 110 Q220 100 240 110 Q260 120 280 130 Q300 140 320 150 Q340 160 360 180 Q380 200 390 250 L390 300 L50 300 Z' fill='%23ffffff' fill-opacity='0.1'/%3E%3Cpath d='M100 280 L110 200 Q115 180 120 160 Q125 140 130 120 Q135 100 140 80 Q145 60 150 40 M150 40 Q160 35 170 40 Q180 45 185 55 Q190 65 185 75 Q180 85 170 80 Q160 75 150 70 M150 40 Q140 35 130 40 Q120 45 115 55 Q110 65 115 75 Q120 85 130 80 Q140 75 150 70' stroke='%23ffffff' stroke-width='3' fill='none' opacity='0.2'/%3E%3Cpath d='M300 290 L290 210 Q285 190 280 170 Q275 150 270 130 Q265 110 260 90 Q255 70 250 50 M250 50 Q260 45 270 50 Q280 55 285 65 Q290 75 285 85 Q280 95 270 90 Q260 85 250 80 M250 50 Q240 45 230 50 Q220 55 215 65 Q210 75 215 85 Q220 95 230 90 Q240 85 250 80' stroke='%23ffffff' stroke-width='2' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background-size: 100% auto;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-cyan-300 via-blue-400 to-blue-500 palm-silhouette">
+    <div class="min-h-screen flex items-center justify-center px-4 py-8">
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 w-full max-w-md">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-2xl font-bold text-blue-600 mb-2">Sign In to HopNExplore</h1>
+                <p class="text-gray-600 text-sm">Enter your credentials to access your travel plans and bookings</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="space-y-6">
+                <!-- Email/Username Field -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                        Email or Username
+                    </label>
+                    <input type="text" id="email" name="email" placeholder="your.email@example.com"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                        required>
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                        Password
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="••••••••"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                        required>
+                </div>
+
+                <!-- Sign In Button -->
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Sign In
+                </button>
+
+                <!-- Forgot Password Link -->
+                <div class="text-center">
+                    <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                        Forgot your password?
+                    </a>
+                </div>
+
+                <!-- Sign Up Link -->
+                <div class="text-center pt-4 border-t border-gray-200">
+                    <span class="text-gray-600 text-sm">Don't have an account? </span>
+                    <a asp-controller="Register" asp-action="Index" asp-area="" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                        Sign Up
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Palm Decorations -->
+    <div class="absolute bottom-0 left-0 w-32 h-32 opacity-20">
+        <svg viewBox="0 0 100 100" class="w-full h-full text-white">
+            <path
+                d="M50 90 L55 60 Q58 40 60 20 Q62 10 65 5 M65 5 Q70 3 75 8 Q80 13 78 18 Q76 23 70 20 Q65 17 60 15 M65 5 Q60 3 55 8 Q50 13 52 18 Q54 23 60 20 Q65 17 70 15"
+                stroke="currentColor" stroke-width="2" fill="none" />
+            <path
+                d="M45 85 L40 55 Q37 35 35 15 Q33 5 30 0 M30 0 Q25 -2 20 3 Q15 8 17 13 Q19 18 25 15 Q30 12 35 10 M30 0 Q35 -2 40 3 Q45 8 43 13 Q41 18 35 15 Q30 12 25 10"
+                stroke="currentColor" stroke-width="2" fill="none" />
+        </svg>
+    </div>
+
+    <div class="absolute bottom-0 right-0 w-24 h-24 opacity-15">
+        <svg viewBox="0 0 100 100" class="w-full h-full text-white">
+            <path
+                d="M50 90 L55 60 Q58 40 60 20 Q62 10 65 5 M65 5 Q70 3 75 8 Q80 13 78 18 Q76 23 70 20 Q65 17 60 15 M65 5 Q60 3 55 8 Q50 13 52 18 Q54 23 60 20 Q65 17 70 15"
+                stroke="currentColor" stroke-width="2" fill="none" />
+        </svg>
+    </div>
+
+    <script>
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            const inputs = document.querySelectorAll('input');
+
+            // Add floating label effect
+            inputs.forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.classList.add('focused');
+                });
+
+                input.addEventListener('blur', function () {
+                    if (!this.value) {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+
+            // Form submission handler
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Add loading state to button
+                const button = form.querySelector('button[type="submit"]');
+                const originalText = button.textContent;
+                button.textContent = 'Signing In...';
+                button.disabled = true;
+
+                // Simulate login process
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    alert('Login functionality would be implemented here!');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

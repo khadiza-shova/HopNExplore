@@ -1,0 +1,65 @@
+{
+  "package_details": [
+    {
+      "id": 1,
+      "title": "Sajek Valley Adventure",
+      "location": "Sajek, Rangamati, Bangladesh",
+      "duration": "3 Days, 2 Nights",
+      "price": 8500,
+      "currency": "BDT",
+      "images": ["images/sajek1.jpg", "images/sajek2.jpg", "images/sajek3.jpg"],
+      "itinerary": [
+        {
+          "day": 1,
+          "activities": ["Arrival at Sajek", "Hotel check-in", "Evening at Sajek River"]
+        },
+        {
+          "day": 2,
+          "activities": ["Visit Konglak Hill", "Tribal village tour", "Sunset view"]
+        },
+        {
+          "day": 3,
+          "activities": ["Breakfast", "Return journey"]
+        }
+      ],
+      "inclusions": ["Hotel accommodation", "Daily breakfast", "Local transport", "Tour guide"],
+      "exclusions": ["Personal expenses", "Air/train tickets", "Extra meals not mentioned"],
+      "contact": {"agency_name": "Bangla Tours & Travels", "phone": "+8801712345678", "email": "info@banglatours.com"}
+    },
+    {
+      "id": 2,
+      "title": "Cox’s Bazar Beach Holiday",
+      "location": "Cox’s Bazar, Bangladesh",
+      "duration": "4 Days, 3 Nights",
+      "price": 12000,
+      "currency": "BDT",
+      "images": ["images/cox1.jpg", "images/cox2.jpg", "images/cox3.jpg"],
+      "itinerary": [
+        {"day": 1, "activities": ["Arrival at Cox’s Bazar", "Hotel check-in", "Evening beach walk"]},
+        {"day": 2, "activities": ["Morning beach photography", "Trip to Himchari & Inani Beach", "Seafood dinner"]},
+        {"day": 3, "activities": ["Visit Maheshkhali Island", "Shopping in local market", "Sunset at Laboni Point"]},
+        {"day": 4, "activities": ["Breakfast", "Check-out & return journey"]}
+      ],
+      "inclusions": ["Hotel accommodation", "Daily breakfast", "Local transport", "Tour guide"],
+      "exclusions": ["Personal expenses", "Air/train tickets", "Extra meals not mentioned"],
+      "contact": {"agency_name": "Bangla Tours & Travels", "phone": "+8801712345678", "email": "info@banglatours.com"}
+    },
+    {
+      "id": 3,
+      "title": "Sundarban Wildlife Safari",
+      "location": "Khulna & Sundarban, Bangladesh",
+      "duration": "3 Days, 2 Nights",
+      "price": 15000,
+      "currency": "BDT",
+      "images": ["images/sundarban1.jpg", "images/sundarban2.jpg", "images/sundarban3.jpg"],
+      "itinerary": [
+        {"day": 1, "activities": ["Arrival at Sundarban", "Boat safari in mangroves", "Evening rest at lodge"]},
+        {"day": 2, "activities": ["Tiger spotting", "Visit Dobanki watchtower", "Photography session"]},
+        {"day": 3, "activities": ["Breakfast", "Boat ride back", "Departure"]}
+      ],
+      "inclusions": ["Boat safari", "Accommodation", "Meals", "Tour guide"],
+      "exclusions": ["Personal expenses", "Tips", "Travel insurance"],
+      "contact": {"agency_name": "Bangla Tours & Travels", "phone": "+8801712345678", "email": "info@banglatours.com"}
+    }
+  ]
+}

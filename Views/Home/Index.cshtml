@@ -1,0 +1,513 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    nav {
+        position: absolute;
+        /* sits over the banner */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 10;
+        /* on top of overlay */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: transparent;
+    }
+
+    .banner {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        /* adjust height as needed */
+        background: url('images/HomePageImages/slider1.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* black with 50% opacity */
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    nav ul li a {
+        color: white !important;
+        transition: color 0.3s ease;
+    }
+
+    /* Banner content */
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        /* Center vertically & horizontally */
+        z-index: 2;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<div class="bg-black">
+    <section class="max-w-6xl mx-auto px-6 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-4 text-white">Why Choose HopNExplore?</h2>
+        <p class="text-gray-600 mb-12">
+            Experience the world with experts who care about your journey.
+        </p>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">🏅</div>
+                <h3 class="text-lg font-semibold mb-2">Expert Guides</h3>
+                <p class="text-gray-600 text-sm">
+                    Our experienced guides ensure a safe, insightful, and memorable journey every time.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">📖</div>
+                <h3 class="text-lg font-semibold mb-2">Customizable Itineraries</h3>
+                <p class="text-gray-600 text-sm">
+                    Tailor your adventure to your unique preferences with our flexible tour options.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">🌍</div>
+                <h3 class="text-lg font-semibold mb-2">Sustainable Travel</h3>
+                <p class="text-gray-600 text-sm">
+                    We are committed to eco-friendly practices, preserving the beauty of our destinations.
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">📞</div>
+                <h3 class="text-lg font-semibold mb-2">24/7 Support</h3>
+                <p class="text-gray-600 text-sm">
+                    Our dedicated support team is available around the clock to assist you.
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">🌏</div>
+                <h3 class="text-lg font-semibold mb-2">Diverse Destinations</h3>
+                <p class="text-gray-600 text-sm">
+                    Explore a world of possibilities from serene beaches to bustling metropolises.
+                </p>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition">
+                <div class="text-4xl text-blue-500 mb-4">✨</div>
+                <h3 class="text-lg font-semibold mb-2">Unforgettable Experiences</h3>
+                <p class="text-gray-600 text-sm">
+                    We craft unique moments that turn trips into lifelong memories.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    @* Tour Packages  *@
+
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <h1 class="text-2xl font-bold text-center mb-8 text-white">Latest Tour Packages</h1>
+
+        <!-- Filter & Sort Buttons -->
+        <div class="flex justify-center gap-4 mb-10">
+            <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 flex items-center gap-2">
+                <span>Filter</span>
+            </button>
+            <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 flex items-center gap-2">
+                <span>Sort By</span>
+            </button>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+                <img src="https://picsum.photos/600/400?random=1" alt="" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h2 class="text-lg font-semibold text-white">Majestic Himalayan Trek</h2>
+                    <p class="text-sm text-gray-400 mb-3">7 Days / 6 Nights</p>
+                    <p class="text-sm text-gray-300 mb-4">Embark on an exhilarating trek through the breathtaking trails
+                        of
+                        the Himalayas, discovering serene landscapes, ancient monasteries, and vibrant cultures.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-500 font-bold text-lg">$1,850</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+                <img src="https://picsum.photos/600/400?random=2" alt="" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h2 class="text-lg font-semibold text-white">Idyllic Coastal Escape</h2>
+                    <p class="text-sm text-gray-400 mb-3">5 Days / 4 Nights</p>
+                    <p class="text-sm text-gray-300 mb-4">Discover hidden coves, sun-kissed beaches, and charming
+                        seaside
+                        towns on this relaxing coastal journey, perfect for unwinding by the ocean.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-500 font-bold text-lg">$1,200</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+                <img src="https://picsum.photos/600/400?random=3" alt="" class="w-full h-48 object-cover">
+                <div class="p-5">
+                    <h2 class="text-lg font-semibold text-white">Ancient Wonders City Tour</h2>
+                    <p class="text-sm text-gray-400 mb-3">4 Days / 3 Nights</p>
+                    <p class="text-sm text-gray-300 mb-4">Immerse yourself in the rich history and vibrant culture of
+                        ancient cities, exploring iconic landmarks, bustling markets, and local delicacies.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-red-500 font-bold text-lg">$950</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
+                            Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Cards Here (repeat structure) -->
+
+        </div>
+        <!-- Title -->
+
+    </div>
+
+
+    @* Latest Blogs  *@
+
+    <div>
+
+        <!-- Latest Adventures Section -->
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <h2 class=" text-white text-3xl font-bold text-center mb-12">Latest Adventures & Insights</h2>
+
+            <!-- Blog Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop"
+                        alt="Andes Mountains" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">The Wonders of the Andes: A Journey</h3>
+                        <p class="text-gray-400 text-sm mb-3">June 15, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Embark on an unforgettable journey through the majestic Andes mountains, discovering hidden
+                            trails, ancient civilizations, and...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1539650116574-75c0c6d68e4d?w=400&h=250&fit=crop"
+                        alt="Ancient Ruins" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Exploring Ancient Ruins: Whispers of</h3>
+                        <p class="text-gray-400 text-sm mb-3">June 10, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Uncover the mysteries of ancient civilizations as we explore their breathtaking ruins, from
+                            the
+                            pyramids of Egypt to the...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1534177616072-ef31dc043b00?w=400&h=250&fit=crop"
+                        alt="Safari Wildlife" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Safari Adventures: Witnessing Wildlife in</h3>
+                        <p class="text-gray-400 text-sm mb-3">June 5, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Experience the thrill of safari as you witness the raw beauty of wildlife in their natural
+                            habitats. From the great migrations...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop"
+                        alt="Tropical Paradise" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Tropical Paradises: Gateways to Sun-kissed</h3>
+                        <p class="text-gray-400 text-sm mb-3">May 28, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Dreaming of sun-kissed shores and turquoise waters? Explore the most exquisite tropical
+                            paradises around the globe...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&h=250&fit=crop"
+                        alt="Urban City" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Urban Exploration: Discovering the</h3>
+                        <p class="text-gray-400 text-sm mb-3">May 20, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Dive into the vibrant heartbeat of the world's greatest cities. Our urban exploration guides
+                            unveil hidden gems...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 -->
+                <div
+                    class="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=400&h=250&fit=crop"
+                        alt="Northern Lights" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Chasing the Aurora: A Guide to Northern</h3>
+                        <p class="text-gray-400 text-sm mb-3">May 15, 2024</p>
+                        <p class="text-gray-300 text-sm mb-4 leading-relaxed">
+                            Witness the ethereal beauty of the Aurora Borealis. This guide provides expert tips on the
+                            best
+                            locations, times, and...
+                        </p>
+                        <button
+                            class="bg-orange-600 hover:bg-orange-700 px-4 py-2 rounded text-sm font-medium transition-colors">
+                            Read More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Contact Section  *@
+
+    <div class="max-w-7xl mx-auto px-4 py-16">
+
+
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                We'd Love to Hear From You
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Whether you have a question about our tours, need assistance with a booking,
+                or just want to say hello, we're here to help.
+            </p>
+        </div>
+
+        <!-- Contact Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <!-- Get in Touch Section -->
+            <div class="space-y-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+
+                <!-- Contact Info Items -->
+                <div class="space-y-6">
+                    <!-- Address -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-wanderlust-blue" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                    </path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Address</h3>
+                            <p class="text-gray-600">
+                                123 Adventure Avenue, Suite 400, Explorer City,<br>
+                                Wanderlust State 98765
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-wanderlust-blue" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Phone</h3>
+                            <a href="tel:+15551234567"
+                                class="text-gray-600 hover:text-wanderlust-blue transition-colors">
+                                +1 (555) 123-4567
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-wanderlust-blue" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-gray-800 mb-1">Email</h3>
+                            <a href="mailto:info@wanderlusttours.com"
+                                class="text-gray-600 hover:text-wanderlust-blue transition-colors">
+                                info@wanderlusttours.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="bg-blue-50 rounded-xl p-6 mt-8">
+                    <h3 class="font-semibold text-gray-800 mb-2">Office Hours</h3>
+                    <p class="text-gray-600 text-sm">
+                        Monday - Friday: 9:00 AM - 6:00 PM<br>
+                        Saturday: 10:00 AM - 4:00 PM<br>
+                        Sunday: Closed
+                    </p>
+                </div>
+            </div>
+
+            <!-- Send Us a Message Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+
+                <form class="space-y-6" id="contactForm">
+                    <!-- Your Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                            Your Name
+                        </label>
+                        <input type="text" id="name" name="name" placeholder="John Doe"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wanderlust-blue focus:border-wanderlust-blue outline-none transition-colors"
+                            required>
+                    </div>
+
+                    <!-- Your Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                            Your Email
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="john.doe@example.com"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wanderlust-blue focus:border-wanderlust-blue outline-none transition-colors"
+                            required>
+                    </div>
+
+                    <!-- Subject -->
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
+                            Subject
+                        </label>
+                        <input type="text" id="subject" name="subject" placeholder="Regarding a tour package"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wanderlust-blue focus:border-wanderlust-blue outline-none transition-colors"
+                            required>
+                    </div>
+
+                    <!-- Your Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                            Your Message
+                        </label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..."
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-wanderlust-blue focus:border-wanderlust-blue outline-none transition-colors resize-vertical"
+                            required></textarea>
+                    </div>
+
+                    <!-- Send Message Button -->
+                    <button type="submit"
+                        class="w-full bg-wanderlust-blue hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-wanderlust-blue focus:ring-offset-2">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Success Message (Hidden by default) -->
+        <div id="successMessage"
+            class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Message Sent!</h3>
+                    <p class="text-gray-600 mb-4">Thank you for reaching out. We'll get back to you soon!</p>
+                    <button onclick="closeSuccessMessage()"
+                        class="bg-wanderlust-blue text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   
+
+</div>
+</div>
