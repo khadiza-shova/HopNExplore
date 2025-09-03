@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HopNExplore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69e11d5ebe28958f9722e5a4456990e088918a4b")]
 [assembly: System.Reflection.AssemblyProductAttribute("HopNExplore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HopNExplore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -12,5 +12,6 @@ namespace HopNExplore.Data
         }
 
         public DbSet<TourPackage> TourPackages { get; set; }
+        public DbSet<Booking>Bookings{ get; set; }
     }
 }

@@ -1,21 +1,23 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HopNExplore.Models;
+using HopNExplore.Data;
 namespace HopNExplore.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class BookingController : Controller
 {
-    private readonly ILogger<BookingController> _logger;
+    private readonly ApplicationDbContext _db;
 
-    public BookingController(ILogger<BookingController> logger)
+    public BookingController(ApplicationDbContext db)
     {
-        _logger = logger;
+        _db = db;
     }
 
     public IActionResult Index()
     {
-        return View();
+        var bookings = _db.Bookings.ToList();
+        return View(bookings);
     }
 
 

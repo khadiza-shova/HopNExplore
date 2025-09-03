@@ -24,32 +24,32 @@
           @* @if (Model != null && Model.Any())   *@
         @* { *@
             <!-- Cards Grid -->
-            @* <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"> *@
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 @* Display All Tour Packages  *@
 
-                @* @foreach (var package in Model) *@
+                @foreach (var item in Model)
                 {
                     <!-- Card -->
-                    @* <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
-                        <img src=@package.Thumbnail alt="" class="w-full h-48 object-cover">
+                    <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+                        <img src="@Url.Action("GetThumbnail", "TourPackage", new { id = item.Id })" alt="" class="w-full h-48 object-cover">
                         <div class="p-5">
-                            <h2 class="text-lg font-semibold text-white">@package.TourName</h2>
-                            <p class="text-sm text-gray-400 mb-3">@package.Duration</p>
+                            <h2 class="text-lg font-semibold text-white">@item.TourName</h2>
+                            <p class="text-sm text-gray-400 mb-3">@item.Days</p>
                             <p class="text-sm text-gray-300 mb-4">Embark on an exhilarating trek through the breathtaking trails
                                 of
                                 the Himalayas, discovering serene landscapes, ancient monasteries, and vibrant cultures.</p>
                             <div class="flex justify-between items-center">
-                                <span class="text-red-500 font-bold text-lg">@package.Price BDT</span>
+                                <span class="text-red-500 font-bold text-lg">@item.Price BDT</span>
 
-                                <a href="TourPackage/Details/@package.Id">
+                                <a asp-controller="TourPackage" asp-action="Details" asp-route-id="@item.Id">
 
                                     <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
                                         Details</button>
                                 </a>
                             </div>
                         </div>
-                    </div> *@
+                    </div>
 
                 }
              

@@ -48,8 +48,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91clBhY2thZ2VzXGFkZFN1Ym1pdHRlZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dot Net/HopNExplore/Areas/Admin/Views/TourPackages/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91clBhY2thZ2VzXEluZGV4LmNzaHRtbA==
+[D:/Dot Net/HopNExplore/Areas/Admin/Views/TourPackages/Display.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVG91clBhY2thZ2VzXERpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dot Net/HopNExplore/Areas/Admin/Views/User/Index.cshtml]
@@ -66,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Dot Net/HopNExplore/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Dot Net/HopNExplore/Views/Booking/AddSubmitted.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xBZGRTdWJtaXR0ZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Dot Net/HopNExplore/Views/Contact/Index.cshtml]

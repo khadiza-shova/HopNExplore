@@ -1,6 +1,9 @@
+@using HopNExplore.Models
+@model TourPackage
+
 <div class="bg-gray-50">
     <div class="flex h-full">
-       
+
 
         <!-- Main Content -->
         <div class="flex-1 ">
@@ -32,15 +35,25 @@
                                 package.</p>
                         </div>
 
-                        <form method="post" asp-controller="CreatePackage" asp-action="addSubmitted" id="tourPackageForm" class="p-6">
+                        <form asp-action="addSubmitted" asp-controller="CreatePackage"  method="post" enctype="multipart/form-data"
+                            id="tourPackageForm" class="p-6">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 <!-- Left Column -->
                                 <div class="space-y-6">
+
+                                     <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Tour
+                                            ID *</label>
+                                        <input asp-for="Id" type="text" id="Id" required
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
+                                            placeholder="Enter tour package name">
+                                    </div>
+
                                     <!-- Tour Name -->
                                     <div>
-                                        <label for="tourName" class="block text-sm font-medium text-gray-700 mb-2">Tour
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Tour
                                             Package Name *</label>
-                                        <input type="text" id="tourName" name="tourName" required
+                                        <input asp-for="TourName" type="text" id="TourName" required
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
                                             placeholder="Enter tour package name">
                                     </div>
@@ -49,7 +62,7 @@
                                     <div>
                                         <label for="destination"
                                             class="block text-sm font-medium text-gray-700 mb-2">Destination *</label>
-                                        <input type="text" id="destination" name="destination" required
+                                        <input asp-for="Destination" type="text" id="destination" required
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
                                             placeholder="e.g., Paris, France or Tokyo, Japan">
                                     </div>
@@ -57,17 +70,17 @@
                                     <!-- Duration -->
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
-                                            <label for="duration"
+                                            <label for="days"
                                                 class="block text-sm font-medium text-gray-700 mb-2">Duration (Days)
                                                 *</label>
-                                            <input type="number" id="duration" name="duration" min="1" required
+                                            <input asp-for="Days" type="number" id="days"  min="1" required
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
                                                 placeholder="7">
                                         </div>
                                         <div>
                                             <label for="nights"
                                                 class="block text-sm font-medium text-gray-700 mb-2">Nights</label>
-                                            <input type="number" id="nights" name="nights" min="0"
+                                            <input asp-for="Nights" type="number" id="nights" min="0"
                                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
                                                 placeholder="6">
                                         </div>
@@ -76,30 +89,20 @@
                                     <!-- Price -->
                                     <div>
                                         <label for="price" class="block text-sm font-medium text-gray-700 mb-2">Price
-                                            (USD) *</label>
+                                            (BD) *</label>
                                         <div class="relative">
                                             <div
                                                 class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <span class="text-gray-500 sm:text-sm">$</span>
+                                                <span class="text-gray-500 sm:text-sm">Taka</span>
                                             </div>
-                                            <input type="number" id="price" name="price" min="0" step="0.01" required
+                                            <input asp-for="Price" type="number" id="price" min="0" step="0.01" required
                                                 class="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
                                                 placeholder="2500.00">
                                         </div>
                                     </div>
 
-                                    <!-- Max Travelers -->
-                                    <div>
-                                        <label for="maxTravelers"
-                                            class="block text-sm font-medium text-gray-700 mb-2">Maximum
-                                            Travelers</label>
-                                        <input type="number" id="maxTravelers" name="maxTravelers" min="1"
-                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors"
-                                            placeholder="20">
-                                    </div>
-
                                     <!-- Status -->
-                                    <div>
+                                    @* <div>
                                         <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status
                                             *</label>
                                         <select id="status" name="status" required
@@ -110,7 +113,7 @@
                                             <option value="pending">Pending</option>
                                             <option value="inactive">Inactive</option>
                                         </select>
-                                    </div>
+                                    </div> *@
                                 </div>
 
                                 <!-- Right Column -->
@@ -134,8 +137,8 @@
                                                     <label for="tourImage"
                                                         class="relative cursor-pointer bg-white rounded-md font-medium text-brand-blue hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-brand-blue">
                                                         <span>Upload a file</span>
-                                                        <input id="tourImage" name="tourImage" type="file"
-                                                            class="sr-only" accept="image/*">
+                                                        <input name="ThumbnailFile" asp-for="Thumbnail"  type="file"
+                                                         accept="image/*">
                                                     </label>
                                                     <p class="pl-1">or drag and drop</p>
                                                 </div>
@@ -149,7 +152,7 @@
                                         <label for="shortDescription"
                                             class="block text-sm font-medium text-gray-700 mb-2">Short
                                             Description</label>
-                                        <textarea id="shortDescription" name="shortDescription" rows="3"
+                                        <textarea asp-for="ShortDescription" id="shortDescription"  rows="3"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
                                             placeholder="Brief overview of the tour package..."></textarea>
                                     </div>
@@ -159,7 +162,7 @@
                                         <label for="detailedDescription"
                                             class="block text-sm font-medium text-gray-700 mb-2">Detailed
                                             Description</label>
-                                        <textarea id="detailedDescription" name="detailedDescription" rows="6"
+                                        <textarea asp-for="DetailedDescription" id="detailedDescription" rows="6"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
                                             placeholder="Detailed information about the tour package, including highlights, activities, accommodations..."></textarea>
                                     </div>
@@ -168,7 +171,7 @@
                                     <div>
                                         <label for="inclusions"
                                             class="block text-sm font-medium text-gray-700 mb-2">What's Included</label>
-                                        <textarea id="inclusions" name="inclusions" rows="4"
+                                        <textarea asp-for="Inclusions" id="inclusions" rows="4"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-colors resize-none"
                                             placeholder="• Accommodation in 4-star hotels&#10;• Daily breakfast&#10;• Professional tour guide&#10;• Airport transfers"></textarea>
                                     </div>
@@ -176,7 +179,7 @@
                             </div>
 
                             <!-- Itinerary Section -->
-                            <div class="mt-8 pt-8 border-t border-gray-200">
+                            @* <div class="mt-8 pt-8 border-t border-gray-200">
                                 <div class="flex items-center justify-between mb-4">
                                     <h3 class="text-lg font-semibold text-gray-800">Itinerary</h3>
                                     <button type="button" id="addDay"
@@ -203,7 +206,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> *@
 
                             <!-- Form Actions -->
                             <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row gap-3 justify-end">

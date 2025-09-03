@@ -4,22 +4,61 @@ using HopNExplore.Models;
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using HopNExplore.Data;
 
 namespace HopNExplore.Controllers;
 
 public class TourPackageController : Controller
 {
+    private readonly ApplicationDbContext _db;
     private readonly IWebHostEnvironment _env;
     // constructor injection
-    public TourPackageController(IWebHostEnvironment env)
+    public TourPackageController(ApplicationDbContext db, IWebHostEnvironment env)
     {
+        _db = db;
         _env = env;
     }
 
     public ActionResult Index()
     {
-        return View();
+        var packages = _db.TourPackages.ToList();
+        return View(packages);
     }
+
+    public IActionResult GetThumbnail(int id)
+    {
+        var tourPackage = _db.TourPackages.FirstOrDefault(t => t.Id == id);
+
+        if (tourPackage == null || tourPackage.Thumbnail == null)
+        {
+            return NotFound();
+        }
+        // Return the byte[] as an image
+        return File(tourPackage.Thumbnail, "image/jpg");
+    }
+
+
+    public ActionResult Details(int id)
+    {
+        var singlepackage = _db.TourPackages.FirstOrDefault(t => t.Id == id);
+        if (singlepackage == null)
+        {
+            return NotFound();
+        }
+        return View(singlepackage);
+    }
+
+    public ActionResult Booking(int id)
+    {
+        var bookingData = _db.TourPackages.FirstOrDefault(t => t.Id == id);
+        if (bookingData == null)
+        {
+            return NotFound();
+        }
+        return View(bookingData);
+    }
+
+
     // public ActionResult Index()
     // {
     //     // correct path in ASP.NET Core
