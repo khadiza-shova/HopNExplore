@@ -9,7 +9,7 @@ namespace HopNExplore.Models
         public string Name { get; set; }
 
         public string Email { get; set; }
-       
+
         public string Phone { get; set; }
 
         public int NumberOfTravelers { get; set; }
@@ -17,7 +17,7 @@ namespace HopNExplore.Models
         public string Address { get; set; }
 
         public DateTime BookingDate { get; set; } = DateTime.Now;
-       
+
         public DateTime PreferredDates { get; set; }
 
 

@@ -3,20 +3,25 @@ using Microsoft.AspNetCore.Mvc;
 using HopNExplore.Models;
 namespace HopNExplore.Controllers;
 
+using HopNExplore.Data;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly ApplicationDbContext _db;
+    private readonly IWebHostEnvironment _env;
+    // constructor injection
+    public HomeController(ApplicationDbContext db, IWebHostEnvironment env)
     {
-        _logger = logger;
+        _db = db;
+        _env = env;
     }
-
     public IActionResult Index()
     {
-        return View();
+
+        var packages = _db.TourPackages.Take(6).ToList();
+        return View(packages);
     }
+
 
     public IActionResult Privacy()
     {

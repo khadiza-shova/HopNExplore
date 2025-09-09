@@ -4,8 +4,6 @@ using HopNExplore.Models;
 using HopNExplore.Data;
 
 
-
-
 namespace HopNExplore.Areas.Admin.Controllers;
 
 
@@ -105,7 +103,7 @@ public class CreatePackageController : Controller
 
             var tourPackage = new TourPackage
             {
-                Id=obj.Id,
+                Id = obj.Id,
                 TourName = obj.TourName,
                 Destination = obj.Destination,
                 Days = obj.Days,
@@ -121,14 +119,16 @@ public class CreatePackageController : Controller
             _db.TourPackages.Add(tourPackage);
             _db.SaveChanges();
 
-            TempData["success"] = "TourPackage Added Successfully!";
+            // ✅ Store confirmation message
+            TempData["SuccessMessage"] = "Tour package created successfully!";
+
             return RedirectToAction("Index");
         }
 
         // If model state is invalid
         return View("Index", obj);
     }
-    
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

@@ -1,0 +1,92 @@
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> userManager;
+@inject SignInManager<ApplicationUser> signInManager;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    @if (signInManager.IsSignedIn(User))
+    {
+        var currentUser = await userManager.GetUserAsync(User);
+        var userName = currentUser?.UserName ?? "User";
+
+        <div class="relative inline-block text-left">
+            <!-- Button -->
+            <button id="menu-button" aria-expanded="true" aria-haspopup="true"
+                class="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none ">
+                <img class="w-8 h-8 rounded-full" src='~/images/ProfileImg/profile.jpg' alt="User Avatar">
+                <span>@userName</span>
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="menu"
+                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-900 ring-1 ring-black ring-opacity-5 hidden">
+                <div class="py-1 text-gray-100">
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-700">View Profile</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-700">Settings</a>
+
+                    <div class="border-t border-gray-700">
+                        <a href="@Url.Action("Logout", "AdminLogin", new { area = "" })"
+                            class="block px-4 py-2 text-red-500 hover:bg-gray-700">Logout</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @* <div class="flex items-center gap-4">
+
+        <h2 class="text-white cursor-pointer hover:text-blue-500">
+
+            <a asp-action="Logout" asp-controller="Login" >Logout</a>
+        </h2>
+
+
+        <!-- Mobile Menu Button -->
+        <i id="mobileMenuBtn" class="ri-menu-line text-2xl cursor-pointer md:hidden"></i>
+    </div> *@
+    }
+    else
+    {
+        <div class="flex items-center gap-4">
+
+            <h2 class="text-white cursor-pointer hover:text-blue-500">
+
+                <a asp-controller="Login" asp-action="Index" asp-area="">Login</a>
+            </h2>
+
+
+            <!-- Mobile Menu Button -->
+            <i id="mobileMenuBtn" class="ri-menu-line text-2xl cursor-pointer md:hidden"></i>
+        </div>
+    }
+
+</body>
+<script>
+    // Toggle dropdown
+    const button = document.getElementById('menu-button');
+    const menu = document.getElementById('menu');
+
+    button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking outside
+    window.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.add('hidden');
+        }
+    });
+</script>
+
+</html>

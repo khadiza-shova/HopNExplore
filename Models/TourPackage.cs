@@ -20,15 +20,6 @@ namespace HopNExplore.Models
         public string Inclusions { get; set; }
         public byte[]? Thumbnail { get; set; }  // maps to VARBINARY(MAX)
 
-        // Itinerary – Each Day
-        // public List<Itinerary> Itineraries { get; set; }
+     
     }
-
-    // public class Itinerary
-    // {
-    //     public int Id { get; set; }
-    //     public int TourPackageId { get; set; }
-    //     public string DayTitle { get; set; }
-    //     public string DayDescription { get; set; }
-    // }
 }

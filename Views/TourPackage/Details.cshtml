@@ -44,7 +44,7 @@
 
 
         <a asp-controller="TourPackage" asp-action="Booking" asp-route-id="@Model.Id"> <button
-                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                class="bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 Book Now
             </button>
         </a>
@@ -61,54 +61,48 @@
 
 
     <!-- Tour Overview Section -->
-    <div class="py-16 bg-white">
+    <div class="py-16 ">
         <div class="container mx-auto px-6">
             <div class="animate-slide-up">
-                <h2 class="text-4xl font-bold text-gray-800 mb-8">Tour Overview</h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-12 max-w-4xl">
-                    Experience the ultimate Alpine adventure on this spectacular journey through the heart of the
-                    European Alps. This 5-day expedition
-                    combines thrilling mountain adventures with serene village charm. From the iconic peaks of Mont
-                    Blanc
-                    to the picturesque valleys of Interlaken, experience unparalleled natural beauty, first-class and
-                    accommodations, and unforgettable memories with fellow adventurers. Hikes. Book your alpine
-                    adventure today.
+                <h2 class="text-4xl font-bold text-white mb-8">Tour Overview</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-12 max-w-4xl">
+                    @Model.DetailedDescription
                 </p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Left Column -->
                     <div class="space-y-6">
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Journey through alpine meadows</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Journey through alpine meadows</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Visit to charming mountain villages</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Visit to charming mountain villages</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Opportunities for photography and wildlife spotting</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Opportunities for photography and wildlife spotting</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Small group size for personalized experience</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Small group size for personalized experience</span>
                         </div>
                     </div>
 
                     <!-- Right Column -->
                     <div class="space-y-6 lg:col-span-2">
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Cable car rides to panoramic viewpoints</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Cable car rides to panoramic viewpoints</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Authentic Swiss and French culinary experiences</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Authentic Swiss and French culinary experiences</span>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-5 h-5 bg-green-500 rounded-full mt-1 flex-shrink-0"></div>
-                            <span class="text-gray-700">Experienced local tour guides</span>
+                            <div class="w-5 h-5 bg-red-500 rounded-full mt-1 flex-shrink-0"></div>
+                            <span class="text-gray-400">Experienced local tour guides</span>
                         </div>
                     </div>
                 </div>
@@ -117,7 +111,7 @@
     </div>
 
     <!-- Photo Gallery Section -->
-    <div class="py-16 bg-gray-50">
+    @* <div class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Photo Gallery</h2>
 
@@ -169,12 +163,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> *@
 
     <!-- Detailed Itinerary Section -->
-    <div class="py-16 bg-white">
+    <div class="py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-gray-800 mb-12">Detailed Itinerary</h2>
+            <h2 class="text-4xl font-bold text-white mb-12">Detailed Itinerary</h2>
 
             <div class="space-y-4">
                 <!-- Day 1 -->
@@ -298,18 +292,18 @@
 
 </div>
 <!-- CTA Section -->
-<div class="py-16 bg-blue-600 text-white text-center">
+<div class="py-16 bg-gray-800 text-white text-center">
     <div class="container mx-auto px-6">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for Your @Model.TourName?</h2>
         <p class="text-xl mb-8 opacity-90">Book now and create memories that will last a lifetime</p>
         <div class="space-x-4">
             <button
-                class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
+                class="bg-red-500 text-white font-semibold py-3 px-8 rounded-full hover:bg-red-600 transition-colors duration-300 transform hover:scale-105">
                 Book Now - BDT @Model.Price
             </button>
             <a href="../../Contact">
                 <button
-                    class="border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300">
+                    class="border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-red-600 transition-all duration-300">
                     Contact Us
                 </button>
             </a>

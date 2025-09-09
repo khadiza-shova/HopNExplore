@@ -1,3 +1,5 @@
+@model HopNExplore.Models.RegisterModel
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,18 +23,18 @@
         <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 w-full max-w-md">
             <!-- Header -->
             <div class="text-center mb-8">
-                <h1 class="text-2xl font-bold text-blue-600 mb-2">Sign Up to HopNExplore</h1>
+                <h1 class="text-2xl font-bold text-red-600 mb-2">Sign Up to HopNExplore</h1>
                 <p class="text-gray-600 text-sm">Enter your credentials to access your travel plans and bookings</p>
             </div>
 
-            <!-- Login Form -->
-            <form class="space-y-6">
+            <!-- Register Form -->
+            <form asp-action="addSubmitted" asp-controller="Register" method="post" class="space-y-6">
                 <div>
-                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="UserName" class="block text-sm font-medium text-gray-700 mb-2">
                         Username
                     </label>
-                    <input type="text" id="email" name="email" placeholder="your.email@example.com"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                    <input type="text" asp-for="UserName" placeholder="your.email@example.com"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors bg-white"
                         required>
 
                 </div>
@@ -40,33 +42,33 @@
 
                 <!-- Email/Username Field -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="Email" class="block text-sm font-medium text-gray-700 mb-2">
                         Email
                     </label>
-                    <input type="text" id="email" name="email" placeholder="your.email@example.com"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                    <input type="text" asp-for="Email" placeholder="your.email@example.com"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors bg-white"
                         required>
                 </div>
 
                 <!-- Password Field -->
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="Password" class="block text-sm font-medium text-gray-700 mb-2">
                         Password
                     </label>
-                    <input type="password" id="password" name="password" placeholder="••••••••"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors bg-white"
+                    <input type="password" asp-for="Password" placeholder="••••••••"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-colors bg-white"
                         required>
                 </div>
 
                 <!-- Sign In Button -->
                 <button type="submit"
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    class="w-full bg-red-500  text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                     Sign UP
                 </button>
 
                 <!-- Forgot Password Link -->
                 <div class="text-center">
-                    <a href="#" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                    <a href="#" class="text-red-600  text-sm font-medium transition-colors">
                         Forgot your password?
                     </a>
                 </div>
@@ -74,33 +76,17 @@
                 <!-- Sign Up Link -->
                 <div class="text-center pt-4 border-t border-gray-200">
                     <span class="text-gray-600 text-sm">Don't have an account? </span>
-                    <a asp-controller="Login" asp-action="Index" asp-area="" class="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+                    <a asp-controller="Login" asp-action="Index" asp-area=""
+                        class="text-red-500 text-sm font-medium transition-colors">
                         Sign In
                     </a>
                 </div>
+
             </form>
         </div>
     </div>
 
-    <!-- Floating Palm Decorations -->
-    <div class="absolute bottom-0 left-0 w-32 h-32 opacity-20">
-        <svg viewBox="0 0 100 100" class="w-full h-full text-white">
-            <path
-                d="M50 90 L55 60 Q58 40 60 20 Q62 10 65 5 M65 5 Q70 3 75 8 Q80 13 78 18 Q76 23 70 20 Q65 17 60 15 M65 5 Q60 3 55 8 Q50 13 52 18 Q54 23 60 20 Q65 17 70 15"
-                stroke="currentColor" stroke-width="2" fill="none" />
-            <path
-                d="M45 85 L40 55 Q37 35 35 15 Q33 5 30 0 M30 0 Q25 -2 20 3 Q15 8 17 13 Q19 18 25 15 Q30 12 35 10 M30 0 Q35 -2 40 3 Q45 8 43 13 Q41 18 35 15 Q30 12 25 10"
-                stroke="currentColor" stroke-width="2" fill="none" />
-        </svg>
-    </div>
 
-    <div class="absolute bottom-0 right-0 w-24 h-24 opacity-15">
-        <svg viewBox="0 0 100 100" class="w-full h-full text-white">
-            <path
-                d="M50 90 L55 60 Q58 40 60 20 Q62 10 65 5 M65 5 Q70 3 75 8 Q80 13 78 18 Q76 23 70 20 Q65 17 60 15 M65 5 Q60 3 55 8 Q50 13 52 18 Q54 23 60 20 Q65 17 70 15"
-                stroke="currentColor" stroke-width="2" fill="none" />
-        </svg>
-    </div>
 
     <script>
         // Add some interactive effects
@@ -122,7 +108,7 @@
             });
 
             // Form submission handler
-            form.addEventListener('submit', function (e) {
+            @* form.addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 // Add loading state to button
@@ -138,7 +124,7 @@
                     alert('Login functionality would be implemented here!');
                 }, 2000);
             });
-        });
+        }); *@
     </script>
 </body>
 

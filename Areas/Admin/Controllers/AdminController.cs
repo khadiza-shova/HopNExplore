@@ -2,24 +2,28 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HopNExplore.Models;
 namespace HopNExplore.Areas.Admin.Controllers;
-
+using HopNExplore.Data;
 
 [Area("Admin")]
 public class AdminController : Controller
 {
-    private readonly ILogger<AdminController> _logger;
 
-    public AdminController(ILogger<AdminController> logger)
+
+
+    private readonly ApplicationDbContext _db;
+    public AdminController(ApplicationDbContext db, IWebHostEnvironment env)
     {
-        _logger = logger;
+        _db = db;
+       
     }
-
     public IActionResult Index()
     {
+        int totalTourPackage = _db.TourPackages.Count();
+        ViewBag.TotalTourPackages = totalTourPackage;
         return View();
     }
 
-   
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

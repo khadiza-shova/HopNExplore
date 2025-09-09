@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - HopNExplore</title>
     <script type="importmap"></script>
-    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 
@@ -33,158 +32,142 @@
         var controller = ViewContext.RouteData.Values["controller"]?.ToString();
         var action = ViewContext.RouteData.Values["action"]?.ToString();
     }
-    @if (controller == "Home" && action == "Index")
+
+    @if (controller == "Login" && action == "Index" || controller == "Register" && action == "Index")
     {
 
-        <header class="banner">
-            <nav id="navbar" class="flex items-center justify-between w-full relative p-4">
-                <!-- Logo -->
-                <div>
-
-                    <img src="https://i.ibb.co/0BZfPq6/darklogo.png" alt="logo" class="w-[55px]" />
-                </div>
-
-                <!-- Desktop Menu -->
-                <ul class="items-center gap-8 text-white md:flex hidden">
-                    <!-- Products -->
-                    <li class="flex items-center  cursor-pointer hover:text-blue-500 ">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-
-                    <!-- Tour Packages -->
-                    <li class="flex items-center  cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="TourPackage" asp-action="Index">Tour Packages</a>
-                    </li>
-
-                    <!-- Support -->
-                    <li class="flex items-center cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="Blog" asp-action="Index">Blogs</a>
-                    </li>
-                    <li class="flex items-center cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="Image" asp-action="Index">Images</a>
-                    </li>
-                    <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
-                        <a asp-action="Index" asp-controller="Contact" asp-area="">Contact</a>
-                    </li>
-
-                    <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
-                        <a asp-action="Index" asp-controller="Admin" asp-area="">Admin</a>
-                    </li>
-
-                </ul>
-
-                <!-- User Menu + Mobile Menu Button -->
-                <div class="flex items-center gap-4">
-                    <!-- Avatar -->
-                    @* <div id="accountMenuBtn" class="flex items-center gap-2 cursor-pointer relative">
-                        <div class="relative">
-                            <img src="https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg"
-                                class="w-9 h-9 rounded-full object-cover" />
-                            <div
-                                class="w-2.5 h-2.5 rounded-full bg-green-500 absolute bottom-0 right-0 border-2 border-white">
-                            </div>
-                        </div>
-                        <h1 class="text-gray-600 hidden sm:block">Dhon Deo</h1>
-                        <i id="accountArrow" class="ri-arrow-up-s-line transition-all rotate-180 hidden sm:block"></i>
-
-                        <!-- Dropdown -->
-                        <div id="accountMenu"
-                            class="bg-white absolute top-12 right-0 p-3 rounded-md shadow-lg flex flex-col gap-2 opacity-0 translate-y-2 pointer-events-none transition-all">
-                            <p class="flex items-center gap-2 hover:bg-gray-50 p-2 rounded-md cursor-pointer"><i
-                                    class="ri-user-line"></i> View Profile</p>
-                            <p class="flex items-center gap-2 hover:bg-gray-50 p-2 rounded-md cursor-pointer"><i
-                                    class="ri-settings-3-line"></i> Settings</p>
-                            <div class="border-t pt-2">
-                                <p
-                                    class="flex items-center gap-2 text-red-500 hover:bg-red-50 p-2 rounded-md cursor-pointer">
-                                    <i class="ri-logout-box-line"></i> Logout
-                                </p>
-                            </div>
-                        </div>
-                    </div> *@
-
-                    <h2 class="text-white cursor-pointer hover:text-blue-500">
-                        <a asp-controller="Login" asp-action="Index" asp-area="">Login</a>
-                    </h2>
-
-                    <!-- Mobile Menu Button -->
-                    <i id="mobileMenuBtn" class="ri-menu-line text-2xl cursor-pointer md:hidden"></i>
-                </div>
-
-                <!-- Mobile Sidebar -->
-                <aside id="mobileSidebar"
-                    class="bg-white absolute top-14 right-0 w-64 p-4 rounded-md shadow-lg opacity-0 translate-x-20 pointer-events-none transition-all md:hidden">
-                    <ul class="flex flex-col gap-4 text-gray-600">
-                        <li id="mobileProducts" class="flex items-center justify-between cursor-pointer">
-                            Products <i class="ri-arrow-down-s-line"></i>
-                        </li>
-                        <div id="mobileProductsMenu" class="ml-4 hidden flex-col gap-2">
-                            <p class="cursor-pointer hover:text-blue-500">Demo App</p>
-                            <p class="cursor-pointer hover:text-blue-500">CRM</p>
-                            <p class="cursor-pointer hover:text-blue-500">CMS</p>
-                        </div>
-                        <li class="cursor-pointer hover:text-blue-500">Features</li>
-                        <li class="cursor-pointer hover:text-blue-500">Support</li>
-                    </ul>
-                </aside>
-            </nav>
-            <div class="banner-content">
-                <div>
-                    <h1 class="text-[24px] font-semibold">Discover the ColourFul World</h1>
-                    <h2 class="text-[60px] font-bold">New Advencture</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla adipisci quis officiis, eligendi
-                        laboriosam mollitia!</p>
-                    <button class="bg-white p-4 text-black my-10">Discover Now</button>
-                </div>
-            </div>
-        </header>
     }
-
     else
     {
+        @if (controller == "Home" && action == "Index")
+        {
+            <header class="banner">
+                <nav id="navbar" class="flex items-center justify-between w-full relative p-4">
+                    <!-- Logo -->
+                    <div>
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="~/images/HomePageImages/Logo3.png" alt="logo" class="w-[60px]" />
+                        </a>
 
-        <header class="bg-black">
-            <nav class="flex items-center justify-between w-full relative p-4">
-                <!-- Logo -->
-                <div>
+                    </div>
 
-                    <img src="https://i.ibb.co/0BZfPq6/darklogo.png" alt="logo" class="w-[55px]" />
+                    <!-- Desktop Menu -->
+                    <ul class="items-center gap-8 text-white md:flex hidden">
+                        <!-- Products -->
+                        <li class="flex items-center  cursor-pointer hover:text-blue-500 ">
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
+                        <!-- Tour Packages -->
+                        <li class="flex items-center  cursor-pointer hover:text-blue-500">
+                            <a asp-area="" asp-controller="TourPackage" asp-action="Index">Tour Packages</a>
+                        </li>
+
+                        <!-- Support -->
+                        <li class="flex items-center cursor-pointer hover:text-blue-500">
+                            <a asp-area="" asp-controller="Blog" asp-action="Index">Blogs</a>
+                        </li>
+
+                        <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
+                            <a asp-action="Index" asp-controller="Contact" asp-area="">Contact</a>
+                        </li>
+
+                        @* <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
+                              <a asp-controller="Login" asp-action="Index" asp-area="">Login</a>
+                      </li> *@
+
+
+
+
+
+                    </ul>
+                    <li class="flex items-center gap-1 cursor-pointer hover:text-red-500 text-white">
+                        <a asp-controller="Login" asp-action="Index" asp-area="">Login</a>
+                    </li>
+
+                    @* <partial name="_LoginPartial" /> *@
+
+
+
+
+                    <!-- Mobile Sidebar -->
+                    <aside id="mobileSidebar"
+                        class="bg-white absolute top-14 right-0 w-64 p-4 rounded-md shadow-lg opacity-0 translate-x-20 pointer-events-none transition-all md:hidden">
+                        <ul class="flex flex-col gap-4 text-gray-600">
+                            <li id="mobileProducts" class="flex items-center justify-between cursor-pointer">
+                                Products <i class="ri-arrow-down-s-line"></i>
+                            </li>
+                            <div id="mobileProductsMenu" class="ml-4 hidden flex-col gap-2">
+                                <p class="cursor-pointer hover:text-blue-500">Demo App</p>
+                                <p class="cursor-pointer hover:text-blue-500">CRM</p>
+                                <p class="cursor-pointer hover:text-blue-500">CMS</p>
+                            </div>
+                            <li class="cursor-pointer hover:text-blue-500">Features</li>
+                            <li class="cursor-pointer hover:text-blue-500">Support</li>
+                        </ul>
+                    </aside>
+                </nav>
+
+
+                <div class="banner-content ">
+                    <div>
+                        <h1 class="text-[24px] font-semibold">Explore. Dream. Discover.</h1>
+                        <h2 class="text-[60px] font-bold">New Advencture</h2>
+                        <p>Whether it’s mountains, beaches, or cities — we bring you closer to the destinations you’ve always dreamed of visiting.</p>
+                        <a asp-action="Index" asp-controller="TourPackage">
+
+                            <button class="bg-white px-6 py-3 text-black my-10 rounded-lg">Discover
+                                Now</button>
+                        </a>
+                    </div>
                 </div>
+            </header>
+        }
 
-                <!-- Desktop Menu -->
-                <ul class="items-center gap-8 text-white md:flex hidden">
-                    <!-- Products -->
-                    <li class="flex items-center  cursor-pointer hover:text-blue-500 ">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
+        else
+        {
 
-                    <!-- Tour Packages -->
+            <header class="">
+                <div class="bg-gray-800">
+                    <nav class="flex items-center justify-between w-full relative p-4 ">
 
-                    <li class="flex items-center  cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="TourPackage" asp-action="Index">Tour Packages</a>
-                    </li>
+                        <!-- Logo -->
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="~/images/HomePageImages/Logo3.png" alt="logo" class="w-[60px]" />
+                        </a>
 
-                    <!-- Support -->
-                    <li class="flex items-center cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="Blog" asp-action="Index">Blogs</a>
-                    </li>
+                        <!-- Desktop Menu -->
+                        <ul class="items-center gap-8 text-white md:flex hidden">
+                            <!-- Products -->
+                            <li class="flex items-center cursor-pointer hover:text-red-500 ">
+                                <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            </li>
 
-                    <li class="flex items-center cursor-pointer hover:text-blue-500">
-                        <a asp-area="" asp-controller="Image" asp-action="Index">Images</a>
-                    </li>
+                            <!-- Tour Packages -->
 
-                    <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
-                        <a asp-action="Index" asp-controller="Contact" asp-area="">Contact</a>
-                    </li>
+                            <li class="flex items-center  cursor-pointer hover:text-red-500">
+                                <a asp-area="" asp-controller="TourPackage" asp-action="Index">Tour Packages</a>
+                            </li>
 
-                    <li class="flex items-center gap-1 cursor-pointer hover:text-blue-500">
-                        <a asp-area="Admin" asp-controller="Admin" asp-action="Index">Admin</a>
-                    </li>
+                            <!-- Support -->
+                            <li class="flex items-center cursor-pointer hover:text-red-500">
+                                <a asp-area="" asp-controller="Blog" asp-action="Index">Blogs</a>
+                            </li>
 
-                </ul>
 
-                <!-- User Menu + Mobile Menu Button -->
-                <div class="flex items-center gap-4">
+                            <li class="flex items-center gap-1 cursor-pointer hover:text-red-500">
+                                <a asp-action="Index" asp-controller="Contact" asp-area="">Contact</a>
+                            </li>
+
+                        </ul>
+
+                        <li class="flex items-center gap-1 cursor-pointer hover:text-red-500 text-white">
+                            <a asp-controller="Login" asp-action="Index" asp-area="">Login</a>
+                        </li>
+
+                        @* <partial name="_LoginPartial" /> *@
+                        <!-- User Menu + Mobile Menu Button -->
+                        @* <div class="flex items-center gap-4">
 
                     <h2 class="text-white cursor-pointer hover:text-blue-500">
 
@@ -194,32 +177,33 @@
 
                     <!-- Mobile Menu Button -->
                     <i id="mobileMenuBtn" class="ri-menu-line text-2xl cursor-pointer md:hidden"></i>
+                </div> *@
+
+                        <!-- Mobile Sidebar -->
+                        <aside id="mobileSidebar"
+                            class="bg-white absolute top-14 right-0 w-64 p-4 rounded-md shadow-lg opacity-0 translate-x-20 pointer-events-none transition-all md:hidden">
+                            <ul class="flex flex-col gap-4 text-gray-600">
+                                <li id="mobileProducts" class="flex items-center justify-between cursor-pointer">
+                                    Products <i class="ri-arrow-down-s-line"></i>
+                                </li>
+                                <div id="mobileProductsMenu" class="ml-4 hidden flex-col gap-2">
+                                    <p class="cursor-pointer hover:text-blue-500">Demo App</p>
+                                    <p class="cursor-pointer hover:text-blue-500">CRM</p>
+                                    <p class="cursor-pointer hover:text-blue-500">CMS</p>
+                                </div>
+                                <li class="cursor-pointer hover:text-blue-500">Features</li>
+                                <li class="cursor-pointer hover:text-blue-500">Support</li>
+                            </ul>
+                        </aside>
+                    </nav>
+
                 </div>
 
-                <!-- Mobile Sidebar -->
-                <aside id="mobileSidebar"
-                    class="bg-white absolute top-14 right-0 w-64 p-4 rounded-md shadow-lg opacity-0 translate-x-20 pointer-events-none transition-all md:hidden">
-                    <ul class="flex flex-col gap-4 text-gray-600">
-                        <li id="mobileProducts" class="flex items-center justify-between cursor-pointer">
-                            Products <i class="ri-arrow-down-s-line"></i>
-                        </li>
-                        <div id="mobileProductsMenu" class="ml-4 hidden flex-col gap-2">
-                            <p class="cursor-pointer hover:text-blue-500">Demo App</p>
-                            <p class="cursor-pointer hover:text-blue-500">CRM</p>
-                            <p class="cursor-pointer hover:text-blue-500">CMS</p>
-                        </div>
-                        <li class="cursor-pointer hover:text-blue-500">Features</li>
-                        <li class="cursor-pointer hover:text-blue-500">Support</li>
-                    </ul>
-                </aside>
-            </nav>
-
-        </header>
+            </header>
+        }
     }
 
-
-
-    <div class="container h-full max-h-full">
+    <div class="container h-full max-h-full bg-black">
 
 
         <main role="main" class="pb-3">
@@ -228,14 +212,15 @@
     </div>
 
 
-    @if (controller == "Admin" && action == "CreatePackage")
+    @if (controller == "Admin" && action == "CreatePackage" || controller == "Login" && action == "Index" ||
+        controller == "Register" && action == "Index")
     {
 
     }
     else
     {
-        <footer class="border-top footer text-muted">
-            <div class="container text-center">
+        <footer class="border-top footer text-muted bg-black">
+            <div class="container text-center text-white py-4">
                 &copy; 2025 - HopNExplore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             </div>
         </footer>

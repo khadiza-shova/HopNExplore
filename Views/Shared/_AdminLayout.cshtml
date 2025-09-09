@@ -39,7 +39,10 @@
                         <path
                             d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
-                    <span class="text-xl font-bold text-brand-blue">logo</span>
+                    <a href="@Url.Action("Index", "Home", new { area = "" })">
+                        <span class="text-xl font-bold text-brand-blue">HopNExplore</span>
+                    </a>
+
                 </div>
             </div>
 
@@ -119,13 +122,15 @@
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </button>
-                    <div class="flex items-center space-x-2">
+
+                    <partial name="_LoginPartial" />
+                    @* <div class="flex items-center space-x-2">
                         <span class="text-sm text-gray-600">Admin Profile</span>
                         <div class="w-8 h-8 bg-gray-300 rounded-full overflow-hidden">
                             <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23e5e7eb' width='100' height='100'/><circle fill='%236b7280' cx='50' cy='40' r='15'/><ellipse fill='%236b7280' cx='50' cy='85' rx='25' ry='20'/></svg>"
                                 alt="Admin" class="w-full h-full object-cover">
                         </div>
-                    </div>
+                    </div> *@
                 </div>
             </div>
             </header>

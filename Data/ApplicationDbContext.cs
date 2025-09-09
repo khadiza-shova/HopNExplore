@@ -1,17 +1,14 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using HopNExplore.Models;
 
-
 namespace HopNExplore.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<TourPackage> TourPackages { get; set; }
-        public DbSet<Booking>Bookings{ get; set; }
+        public DbSet<Booking> Bookings { get; set; }
     }
 }

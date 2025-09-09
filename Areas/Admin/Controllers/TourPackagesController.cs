@@ -27,7 +27,6 @@ public class TourPackagesController : Controller
         return View(packages); // Pass the list to the view
     }
 
-
     public IActionResult GetThumbnail(int id)
     {
         var tourPackage = _db.TourPackages.FirstOrDefault(t => t.Id == id);
@@ -40,6 +39,25 @@ public class TourPackagesController : Controller
         // Return the byte[] as an image
         return File(tourPackage.Thumbnail, "image/jpg");
     }
+
+
+    // Delete Package 
+    public async Task<IActionResult> Delete(int id)
+    {
+        Console.WriteLine($"Delete called with Id = {id}");
+
+        var package = await _db.TourPackages.FindAsync(id);
+        if (package == null)
+        {
+            return NotFound();
+        }
+
+        _db.TourPackages.Remove(package);
+        await _db.SaveChangesAsync();
+
+        return RedirectToAction("Display", "TourPackages");
+    }
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

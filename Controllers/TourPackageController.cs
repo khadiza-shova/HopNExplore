@@ -25,6 +25,8 @@ public class TourPackageController : Controller
         return View(packages);
     }
 
+
+
     public IActionResult GetThumbnail(int id)
     {
         var tourPackage = _db.TourPackages.FirstOrDefault(t => t.Id == id);

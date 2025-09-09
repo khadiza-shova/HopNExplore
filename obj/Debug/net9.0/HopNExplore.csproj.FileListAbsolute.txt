@@ -161,7 +161,6 @@ D:\Dot Net\HopNExplore\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\scopedcss\bundle\HopNExplore.styles.css
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\scopedcss\projectbundle\HopNExplore.bundle.scp.css
-D:\Dot Net\HopNExplore\obj\Debug\net9.0\compressed\pz5sfefzc3-g55rd55j55.gz
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\compressed\0hswplm9b3-x8c9kdk5ta.gz
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\compressed\y7safq14dx-61n19gt1b8.gz
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\compressed\o6zeg8caho-xtxxf3hu2r.gz
@@ -236,3 +235,9 @@ D:\Dot Net\HopNExplore\obj\Debug\net9.0\refint\HopNExplore.dll
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\HopNExplore.pdb
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\HopNExplore.genruntimeconfig.cache
 D:\Dot Net\HopNExplore\obj\Debug\net9.0\ref\HopNExplore.dll
+D:\Dot Net\HopNExplore\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\Dot Net\HopNExplore\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\Dot Net\HopNExplore\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Dot Net\HopNExplore\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+D:\Dot Net\HopNExplore\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Dot Net\HopNExplore\obj\Debug\net9.0\compressed\pz5sfefzc3-l6yz3hjct2.gz

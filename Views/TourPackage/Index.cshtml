@@ -7,9 +7,8 @@
 <div class="bg-black">
     <div class="max-w-7xl mx-auto px-4 py-12">
         <h1 class="text-4xl font-bold text-center text-white">Explore Our Exquisite Tour Packages</h1>
-        <p class="text-gray-300 text-center mt-4 mb-6">Embark on an unforgettable journey with HopNExplore .Discover
+        <p class="text-gray-300 text-center mt-4 mb-6">Embark on an unforgettable journey with HopNExplore.Discover
             destinations that captivate and adventures that inspire </p>
-
         <!-- Filter & Sort Buttons -->
         <div class="flex justify-center gap-4 mb-10">
             <button class="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 flex items-center gap-2">
@@ -19,46 +18,41 @@
                 <span>Sort By</span>
             </button>
         </div>
-
-
-          @* @if (Model != null && Model.Any())   *@
+        @* @if (Model != null && Model.Any())   *@
         @* { *@
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @* Display All Tour Packages  *@
 
-                @* Display All Tour Packages  *@
+            @foreach (var item in Model)
+            {
+                <!-- Card -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
+                    <img src="@Url.Action("GetThumbnail", "TourPackage", new { id = item.Id })" alt=""
+                        class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h2 class="text-lg font-semibold text-white">@item.TourName</h2>
+                        <p class="text-sm text-gray-400 mb-3">@item.Days Days / @item.Nights Nights</p>
+                        <p class="text-sm text-gray-300 mb-4">@item.DetailedDescription</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-red-500 font-bold text-lg">@item.Price BDT</span>
 
-                @foreach (var item in Model)
-                {
-                    <!-- Card -->
-                    <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg">
-                        <img src="@Url.Action("GetThumbnail", "TourPackage", new { id = item.Id })" alt="" class="w-full h-48 object-cover">
-                        <div class="p-5">
-                            <h2 class="text-lg font-semibold text-white">@item.TourName</h2>
-                            <p class="text-sm text-gray-400 mb-3">@item.Days</p>
-                            <p class="text-sm text-gray-300 mb-4">Embark on an exhilarating trek through the breathtaking trails
-                                of
-                                the Himalayas, discovering serene landscapes, ancient monasteries, and vibrant cultures.</p>
-                            <div class="flex justify-between items-center">
-                                <span class="text-red-500 font-bold text-lg">@item.Price BDT</span>
+                            <a asp-controller="TourPackage" asp-action="Details" asp-route-id="@item.Id">
 
-                                <a asp-controller="TourPackage" asp-action="Details" asp-route-id="@item.Id">
-
-                                    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
-                                        Details</button>
-                                </a>
-                            </div>
+                                <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg text-sm">View
+                                    Details</button>
+                            </a>
                         </div>
                     </div>
+                </div>
+            }
 
-                }
-             
-            </div>
+        </div>
 
         }
         else
         {
-            <p>No tour packages found.</p>
+        <p>No tour packages found.</p>
         }
 
     </div>
